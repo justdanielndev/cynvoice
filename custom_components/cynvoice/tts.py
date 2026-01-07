@@ -84,6 +84,11 @@ class CynVoiceEntity(TextToSpeechEntity):
 
         self._url = data.get(CONF_URL, DEFAULT_URL)
         self._voice = data.get(CONF_VOICE, DEFAULT_VOICE)
+        
+        # Store other defaults if provided in YAML or default to hardcoded
+        self._default_temperature = data.get(CONF_TEMPERATURE, 0.95)
+        self._default_repetition_penalty = data.get(CONF_REPETITION_PENALTY, 1.1)
+        self._default_streaming = data.get(CONF_STREAMING, False)
 
     @property
     def default_language(self) -> str:
@@ -115,9 +120,9 @@ class CynVoiceEntity(TextToSpeechEntity):
 
         # Parse options
         voice_id = options.get(CONF_VOICE, self._voice)
-        temperature = options.get(CONF_TEMPERATURE, 0.95)
-        repetition_penalty = options.get(CONF_REPETITION_PENALTY, 1.1)
-        streaming = options.get(CONF_STREAMING, False)
+        temperature = options.get(CONF_TEMPERATURE, self._default_temperature)
+        repetition_penalty = options.get(CONF_REPETITION_PENALTY, self._default_repetition_penalty)
+        streaming = options.get(CONF_STREAMING, self._default_streaming)
 
         payload = {
             "text": message,
