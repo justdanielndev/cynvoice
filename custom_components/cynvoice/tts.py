@@ -36,8 +36,12 @@ SUPPORTED_LANGUAGES = ["en"]
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
-        vol.Required(CONF_URL, default=DEFAULT_URL): cv.string,
-        vol.Optional(CONF_VOICE, default=DEFAULT_VOICE): cv.string,
+        vol.Required("url", default=DEFAULT_URL): cv.string,
+        vol.Optional("voice", default=DEFAULT_VOICE): cv.string,
+        vol.Optional("speed"): cv.string, # Allow other keys if needed or use vol.SCHEMAS
+        vol.Optional("temperature"): cv.float,
+        vol.Optional("repetition_penalty"): cv.float,
+        vol.Optional("streaming"): cv.boolean,
     }
 )
 
