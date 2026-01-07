@@ -1,0 +1,6 @@
+
+# Example configuration.yaml entry
+tts:
+  - platform: cynvoice
+    url: "http://34.139.23.226/v1/tts"
+    voice: "cyn2"
