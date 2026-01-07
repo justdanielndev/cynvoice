@@ -1,4 +1,4 @@
-"""Constants for the CynVoice  integration."""
+"""Constants for the CynVoice integration."""
 
 DOMAIN = "cynvoice"
 DEFAULT_NAME = "CynVoice"

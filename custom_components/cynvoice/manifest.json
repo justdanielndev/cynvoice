@@ -1,7 +1,7 @@
 {
   "domain": "cynvoice",
   "name": "CynVoice Text-to-Speech",
-  "version": "v1.0.0",
+  "version": "1.0.0",
   "documentation": "https://github.com/justdanielndev/cynvoice",
   "dependencies": [],
   "codeowners": [],
