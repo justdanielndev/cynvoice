@@ -8,7 +8,6 @@ import aiohttp
 import voluptuous as vol
 
 from homeassistant.components.tts import (
-    CONF_LANG,
     PLATFORM_SCHEMA,
     TextToSpeechEntity,
 )
@@ -36,12 +35,12 @@ SUPPORTED_LANGUAGES = ["en"]
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
-        vol.Required("url", default=DEFAULT_URL): cv.string,
-        vol.Optional("voice", default=DEFAULT_VOICE): cv.string,
-        vol.Optional("speed"): cv.string, # Allow other keys if needed or use vol.SCHEMAS
-        vol.Optional("temperature"): cv.float,
-        vol.Optional("repetition_penalty"): cv.float,
-        vol.Optional("streaming"): cv.boolean,
+        vol.Required(CONF_URL, default=DEFAULT_URL): cv.string,
+        vol.Optional(CONF_VOICE, default=DEFAULT_VOICE): cv.string,
+        vol.Optional(CONF_SPEED): cv.string,
+        vol.Optional(CONF_TEMPERATURE): cv.float,
+        vol.Optional(CONF_REPETITION_PENALTY): cv.float,
+        vol.Optional(CONF_STREAMING): cv.boolean,
     }
 )
 
@@ -70,7 +69,7 @@ class CynVoiceEntity(TextToSpeechEntity):
     _attr_has_entity_name = True
     _attr_name = "CynVoice"
 
-    def __init__(self, hass: HomeAssistant, config: ConfigEntry | dict[str, Any]) -> None:
+    def __init__(self, hass: HomeAssistant, config: Any) -> None:
         """Init CynVoice TTS service."""
         self.hass = hass
         if isinstance(config, ConfigEntry):
