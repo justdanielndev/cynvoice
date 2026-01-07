@@ -1,0 +1,17 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "CynVoice Configuration",
+                "description": "Configure your CynVoice API endpoint.",
+                "data": {
+                    "url": "API URL",
+                    "voice": "Voice ID"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Service is already configured"
+        }
+    }
+}
